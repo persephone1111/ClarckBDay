@@ -1,0 +1,133 @@
+import webbrowser
+
+# Your friend's name and birthday message
+friend_name = "Clarck"
+birthday_message = ("I hope you take the time to see how special today really is. "
+                    "You're one of a kind. God truly gifted you with so "
+                    "much - kindness, humility, intelligence, and strength. "
+                    "I pray He continues to bless you and watch over you")
+
+# Create the HTML content
+html_content = f"""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday {friend_name}!</title>
+    <style>
+        body {{
+            background-color: #f5f3e7; /* soft beige background */
+            color: #2e3d23; /* dark earthy text */
+            font-family: 'Georgia', serif;
+            text-align: center;
+            padding: 50px;
+        }}
+        .card {{
+            max-width: 600px;       /* limits width */
+            word-wrap: break-word;  /* breaks long words if needed */
+            margin: 0 auto;         /* centers the card horizontally */
+            background-color: #e9e5d6; /* parchment-like card */
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(34, 49, 34, 0.3);
+            padding: 40px;
+            display: inline-block;
+            border: 2px solid #2e5939; /* forest green border */
+        }}
+        h1 {{
+            color: #2e5939; /* forest green */
+        }}
+        p {{
+            font-size: 18px;
+            color: #3b3a30; /* dark mossy brown */
+        }}
+        .card, video {{
+            box-shadow: 0 8px 15px rgba(46, 89, 57, 0.3);
+            border-radius: 20px;
+        }}
+        .container {{
+          display: flex;
+          flex-direction: column; /* stack vertically */
+          align-items: center;    /* center horizontally */
+          margin-top: 40px;
+        }}
+        #playButton {{
+          font-family: 'Georgia', serif; /* match banner font */
+          background-color: #2e5939; /* forest green */
+          color: white;
+          border: none;
+          padding: 12px 30px;
+          font-size: 18px;
+          border-radius: 8px;
+          cursor: pointer;
+          box-shadow: 0 4px 8px rgba(46, 89, 57, 0.4);
+          transition: background-color 0.3s ease;
+        }}
+        #playButton:hover {{
+          background-color: #497a56; /* lighter green on hover */
+        }}
+        video {{
+          display: block;
+          margin: 30px auto 0 auto; /* center video with top margin */
+          border-radius: 12px;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+          max-width: 100%;
+        }}
+        #psNote {{
+  background-color: #d7e4c2;       /* soft mossy green */
+  color: #2e5939;                  /* forest green text */
+  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 2px 8px rgba(46, 89, 57, 0.2);
+  font-family: 'Georgia', serif;
+  text-align: center;
+}}
+
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>🎉 Happy Birthday {friend_name}! 🎂</h1>
+        <p>{birthday_message}</p>
+        <p>Happy Birthday :)</p>
+        <p>From Balquis🌼</p>
+    </div>
+
+    <div class="container">
+        <button id="playButton">Play :D</button>
+
+        <video id="birthdayVideo" width="560" controls style="display:none;">
+            <source src="keyboardcat.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+      const playBtn = document.getElementById('playButton');
+      const video = document.getElementById('birthdayVideo');
+
+      playBtn.addEventListener('click', () => {{
+        video.style.display = 'block';  // show video
+        video.play();                   // play video
+        playBtn.style.display = 'none'; // hide button after clicked
+      }});
+    </script>
+    <div id="psNote">P.S. ur getting old gramps👴🏾</div>
+
+</body>
+</html>
+"""
+
+# Save the HTML to a file
+file_path = "birthday_card.html"
+with open(file_path, "w", encoding="utf-8") as file:
+    file.write(html_content)
+
+# Open it in the default web browser
+webbrowser.open_new_tab(file_path)
+
+
